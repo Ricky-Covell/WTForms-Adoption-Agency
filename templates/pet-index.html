@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+Pet Index
+{% endblock %}
+
+{% block content %}
+<div>
+    {% for pet in pets %}
+    <div>
+        <img style="max-width: 200px; max-height: 200px" src="{{ pet.img_url }}">
+        <a href="{{ url_for('edit_pet', pet_id=pet.id)}}">{{ pet.name }}</a>
+    {% if pet.available %} <b>is available!</b> {% endif %}   
+    </div>
+</div>
+{% endfor %}
+
+<form>
+    <div>
+        <button formaction="{{ url_for('add_pet')}}">Add Pet</a>
+    </div>
+</form>
+{% endblock %}

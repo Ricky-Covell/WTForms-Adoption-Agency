@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block docname %} 
+Edit Pet
+{% endblock %}
+
+{% block header %}
+Edit {{ pet.name }}'s Info
+{% endblock %}
+
+{% block content %}
+<div>
+    {% if pet.photo_url %}
+    <img src="{{ pet.photo_url }}">
+    {% endif %}
+</div>
+
+<h2>Update</h2>
+
+<form method="POST">
+    {% include '_form.html' %}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
